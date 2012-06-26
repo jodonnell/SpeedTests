@@ -1111,6 +1111,7 @@
 				33D8F27B159A481900BF8C75 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

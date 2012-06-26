@@ -15,6 +15,8 @@
 
 #pragma mark - HelloWorldLayer
 
+
+
 // HelloWorldLayer implementation
 @implementation HelloWorldLayer
 
@@ -40,26 +42,33 @@
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super's" return value
 	if( (self=[super init]) ) {
-            [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"sprites.plist"];
-            id sceneSpriteBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"sprites.png"];
-            [self addChild:sceneSpriteBatchNode z:1 tag: 0];
-
-            for (int x =0; x < 550; x++) {
-                CCSprite *sprite = [CCSprite spriteWithSpriteFrameName:@"bullet.png"];
-                [sprite setPosition:ccp(CCRANDOM_0_1() * 360.0f, CCRANDOM_0_1() * 400.0f)];
-                [sceneSpriteBatchNode addChild:sprite z:1 tag:x];
-            }
-            [self scheduleUpdate];
-	}
+    }
 	return self;
+}
+
+-(void) onEnter {
+    [super onEnter];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"sprites.plist"];
+    id sceneSpriteBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"sprites.png"];
+    [self addChild:sceneSpriteBatchNode z:1 tag: 0];
+    
+    for (int x = 0; x < 450; x++) {
+        CCSprite *sprite = [CCSprite spriteWithSpriteFrameName:@"bullet.png"];
+        [sprite setPosition:ccp(CCRANDOM_0_1() * 360.0f, CCRANDOM_0_1() * 400.0f)];
+        [sceneSpriteBatchNode addChild:sprite z:1 tag:x];
+    }
+    [self scheduleUpdate];
 }
 
 
 -(void) update:(ccTime)deltaTime {
-    for (int x =0; x < 550; x++) {
+    for (int x =0; x < 450; x++) {
         id node = [self getChildByTag: 0];
         id sprite = [node getChildByTag: x];
-        [sprite setPosition:ccp([sprite position].x, [sprite position].y + 10)];
+        if ([sprite position].y > 500)
+            [sprite setPosition:ccp([sprite position].x, 0)];
+        else
+            [sprite setPosition:ccp([sprite position].x, [sprite position].y + 10)];
     }
 }
 
