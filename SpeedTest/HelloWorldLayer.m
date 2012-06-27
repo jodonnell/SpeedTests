@@ -57,13 +57,13 @@
         [sprite setPosition:ccp(CCRANDOM_0_1() * 360.0f, CCRANDOM_0_1() * 400.0f)];
         [sceneSpriteBatchNode addChild:sprite z:1 tag:x];
     }
-    [self scheduleUpdate];
+    [self schedule:@selector(update)];
 }
 
 
--(void) update:(ccTime)deltaTime {
+-(void) update {
+    id node = [self getChildByTag: 0];
     for (int x =0; x < 450; x++) {
-        id node = [self getChildByTag: 0];
         id sprite = [node getChildByTag: x];
         if ([sprite position].y > 500)
             [sprite setPosition:ccp([sprite position].x, 0)];
@@ -84,17 +84,5 @@
 	[super dealloc];
 }
 
-#pragma mark GameKit delegate
 
--(void) achievementViewControllerDidFinish:(GKAchievementViewController *)viewController
-{
-	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-	[[app navController] dismissModalViewControllerAnimated:YES];
-}
-
--(void) leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
-{
-	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-	[[app navController] dismissModalViewControllerAnimated:YES];
-}
 @end
