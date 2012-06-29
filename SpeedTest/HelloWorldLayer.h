@@ -8,14 +8,16 @@
 
 
 #import <GameKit/GameKit.h>
-
+#import "Bullet.h"
 // When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
 
 // HelloWorldLayer
 @interface HelloWorldLayer : CCLayer
 {
+    NSMutableArray *bullets;
 }
+@property (retain, nonatomic) NSMutableArray *bullets;
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;

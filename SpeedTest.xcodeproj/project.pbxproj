@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33A65BB0159BA1EC00A5A802 /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A65BAF159BA1EC00A5A802 /* Bullet.m */; };
 		33D8F0EA159A481700BF8C75 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33D8F0E9159A481700BF8C75 /* QuartzCore.framework */; };
 		33D8F0EC159A481700BF8C75 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33D8F0EB159A481700BF8C75 /* OpenGLES.framework */; };
 		33D8F0EE159A481700BF8C75 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33D8F0ED159A481700BF8C75 /* OpenAL.framework */; };
@@ -136,6 +137,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		33A65BAE159BA1EC00A5A802 /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
+		33A65BAF159BA1EC00A5A802 /* Bullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bullet.m; sourceTree = "<group>"; };
 		33D8F0E5159A481700BF8C75 /* SpeedTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeedTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33D8F0E9159A481700BF8C75 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		33D8F0EB159A481700BF8C75 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -459,6 +462,8 @@
 				33D8F272159A481900BF8C75 /* AppDelegate.m */,
 				33D8F274159A481900BF8C75 /* HelloWorldLayer.h */,
 				33D8F275159A481900BF8C75 /* HelloWorldLayer.m */,
+				33A65BAE159BA1EC00A5A802 /* Bullet.h */,
+				33A65BAF159BA1EC00A5A802 /* Bullet.m */,
 				33D8F0FC159A481700BF8C75 /* Resources */,
 				33D8F114159A481700BF8C75 /* libs */,
 				33D8F26D159A481900BF8C75 /* Supporting Files */,
@@ -1008,6 +1013,7 @@
 				33D8F270159A481900BF8C75 /* main.m in Sources */,
 				33D8F273159A481900BF8C75 /* AppDelegate.m in Sources */,
 				33D8F276159A481900BF8C75 /* HelloWorldLayer.m in Sources */,
+				33A65BB0159BA1EC00A5A802 /* Bullet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,9 +16,10 @@
 #pragma mark - HelloWorldLayer
 
 
-
 // HelloWorldLayer implementation
 @implementation HelloWorldLayer
+
+@synthesize bullets;
 
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
 +(CCScene *) scene
@@ -42,6 +43,7 @@
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super's" return value
 	if( (self=[super init]) ) {
+            bullets = [[NSMutableArray alloc] init];
     }
 	return self;
 }
@@ -52,23 +54,23 @@
     id sceneSpriteBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"sprites.png"];
     [self addChild:sceneSpriteBatchNode z:1 tag: 0];
     
-    for (int x = 0; x < 450; x++) {
-        CCSprite *sprite = [CCSprite spriteWithSpriteFrameName:@"bullet.png"];
-        [sprite setPosition:ccp(CCRANDOM_0_1() * 360.0f, CCRANDOM_0_1() * 400.0f)];
-        [sceneSpriteBatchNode addChild:sprite z:1 tag:x];
+    for (int x = 0; x < 3000; x++) {
+        Bullet *bullet = [[Bullet alloc] init];
+        [[bullet sprite] setPosition:ccp(CCRANDOM_0_1() * 360.0f, CCRANDOM_0_1() * 400.0f)];
+        [sceneSpriteBatchNode addChild:[bullet sprite] z:1 tag:x];
+        [bullets addObject:bullet];
     }
     [self schedule:@selector(update)];
 }
 
 
 -(void) update {
-    id node = [self getChildByTag: 0];
-    for (int x =0; x < 450; x++) {
-        id sprite = [node getChildByTag: x];
-        if ([sprite position].y > 500)
-            [sprite setPosition:ccp([sprite position].x, 0)];
+    for (int i = 0; i < [bullets count]; i++) {
+        Bullet *bullet = [bullets objectAtIndex: i];
+        if ([[bullet sprite] position].y > 500)
+            [[bullet sprite] setPosition:ccp([[bullet sprite] position].x, 0)];
         else
-            [sprite setPosition:ccp([sprite position].x, [sprite position].y + 10)];
+            [[bullet sprite] setPosition:ccp([[bullet sprite] position].x, [[bullet sprite] position].y + 10)];
     }
 }
 
